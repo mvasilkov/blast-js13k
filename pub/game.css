@@ -1,0 +1,22 @@
+body {
+    background: #0b0b0b;
+    margin: 0;
+}
+
+#container {
+    border: 1px solid #ff4981;
+    box-shadow: 0 0 2px #ff4981;
+    height: 600px;
+    margin: 50px auto;
+    position: relative;
+    width: 900px;
+}
+
+canvas {
+    display: block;
+    left: 0;
+    position: absolute;
+    top: 0;
+}
+
+#L1 { background: #101010; }
