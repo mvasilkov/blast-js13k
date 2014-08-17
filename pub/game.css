@@ -4,8 +4,8 @@ body {
 }
 
 #container {
-    border: 1px solid #ff4981;
-    box-shadow: 0 0 2px #ff4981;
+    border: 1px solid #ecf0f1;
+    box-shadow: 0 0 2px #ecf0f1;
     height: 600px;
     margin: 50px auto;
     position: relative;
