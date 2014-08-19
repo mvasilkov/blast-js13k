@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>blastoff [[test]]</title>
+        <link rel="stylesheet" href="../pub/game.css">
+    </head>
+    <body>
+        <div id="container">
+            <canvas id="L1" width="900" height="600"></canvas>
+        </div>
+        <script src="../scripts/moon.js"></script>
+        <script>
+            var L1 = document.getElementById('L1')
+            var R1 = L1.getContext('2d')
+            var m = new Moon, fn
+            var s = R1.createImageData(256, 256)
+            var then = Date.now() + 14400000
+
+            requestAnimationFrame(fn = function () {
+                requestAnimationFrame(fn)
+                m.render(s.data, (then - Date.now()) >> 4)
+                R1.putImageData(s, 0.5 * (900 - 256), 0.5 * (600 - 256))
+            })
+        </script>
+    </body>
+</html>
