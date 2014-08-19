@@ -51,14 +51,9 @@ var c = focalPoint[$x] * focalPoint[$x] + moonLocation[$x] * moonLocation[$x] +
         radiusVector[$z] = z * Math.cos(rotation[$y]) - radiusVector[$y] * Math.sin(rotation[$y])
         radiusVector[$y] = z * Math.sin(rotation[$y]) + radiusVector[$y] * Math.cos(rotation[$y])
 
-        return {
-            u: texSize * (
-                Math.atan2(radiusVector[$y], radiusVector[$x]) + Math.PI + 1
-            ) / (2 * Math.PI),
-            v: texSize * Math.floor(texSize - 1 -
-                texSize * Math.min(1, Math.acos(radiusVector[$z] / r) / Math.PI)
-            )
-        }
+        return [texSize * (Math.atan2(radiusVector[$y], radiusVector[$x]) +
+                Math.PI + 1) / (2 * Math.PI), texSize * Math.floor(texSize -
+                1 - texSize * Math.min(1, Math.acos(radiusVector[$z] / r) / Math.PI))]
     }
 
     $$.getVector = function (i) {
@@ -67,5 +62,18 @@ var c = focalPoint[$x] * focalPoint[$x] + moonLocation[$x] * moonLocation[$x] +
             cache[i] = $$.calcVector(i - v * size, v)
         }
         return cache[i]
+    }
+
+    $$.makeTex = function () {
+        var canvas = document.createElement('canvas')
+        canvas.height = canvas.width = texSize
+        canvas = canvas.getContext('2d')
+        canvas.fillStyle = '#7f8c8d'
+        canvas.fillRect(0, 0, texSize, texSize)
+        canvas.fillStyle = '#ecf0f1'
+        var cs = texSize / 32, i, j
+        for (i = 0; i < 32; ++i) for (j = 0; j < 32; ++j)
+            if (i % 2 == j % 2) canvas.fillRect(cs * i, cs * j, cs, cs)
+        return canvas.getImageData(0, 0, texSize, texSize)
     }
 }(window)
