@@ -1,22 +1,21 @@
-var a = new Moon(0, 0, 50, NEUTRAL)
-a.render()
+var moonSize = 0|256 * 2 / 3
+var texSize = 320
+var x = 0.5 * (900 - moonSize)
+var y = 0.5 * (600 - moonSize)
 
-var r = 250, skew = -0.05 * Math.PI
+var moon = new Moon
+var moonBuf = R1.createImageData(moonSize, moonSize)
 
-var b = new Moon(
-    r * Math.cos(skew),
-    r * Math.sin(skew),
-    50, FIRE)
-b.render()
+var offset = texSize, then = Date.now(), diff
 
-var c = new Moon(
-    r * Math.cos(4 * Math.PI / 3 + skew)|0,
-    r * Math.sin(4 * Math.PI / 3 + skew)|0,
-    50, WATER)
-c.render()
+function r() {
+    offset -= (diff = Date.now() - then) / 24
+    then += diff
+    while (offset < 0)
+        offset += texSize
+    moon.render(moonBuf.data, offset)
+    requestAnimationFrame(r)
+    R1.putImageData(moonBuf, x, y)
+}
 
-var d = new Moon(
-    r * Math.cos(2 * Math.PI / 3 + skew)|0,
-    r * Math.sin(2 * Math.PI / 3 + skew)|0,
-    50, EARTH)
-d.render()
+r()

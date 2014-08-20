@@ -4,10 +4,10 @@
 
 /** @const */ var f = 30
 /** @const */ var b = -2 * f * f
-/** @const */ var size = 256
+/** @const */ var size = 0|256 * 2 / 3
 /** @const */ var scale = 30
 /** @const */ var fac = scale / size
-/** @const */ var texSize = 1024
+/** @const */ var texSize = 320
 
 
 function Moon(r, rotation, tilt) {
@@ -17,7 +17,7 @@ function Moon(r, rotation, tilt) {
     this.rot = [0,
         -Math.PI * (tilt || 48) / 180,
         -Math.PI * (rotation || 24) / 180]
-    this.setFaction()
+    this.init()
 }
 
 
@@ -60,8 +60,7 @@ function Moon(r, rotation, tilt) {
         return this.cache[i]
     }
 
-    /* XXX implement factions */
-    $$.setFaction = function () {
+    $$.init = function () {
         this.tex = makeTex()
     }
 
