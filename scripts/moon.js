@@ -14,7 +14,8 @@ function Moon(r, rotation, tilt) {
     ];
     this.init();
 }
-(function ($$, undefined) {
+Moon['size'] = size;
+~function ($$, undefined) {
     /** @const */
     var $x = 0;
     /** @const */
@@ -47,11 +48,15 @@ function Moon(r, rotation, tilt) {
         radiusVector[$y] = x1 * lookAt[$y] - f;
         radiusVector[$z] = x1 * lookAt[$z];
         var x = radiusVector[$x];
-        radiusVector[$x] = x * Math.cos(this.rot[$z]) - radiusVector[$y] * Math.sin(this.rot[$z]);
-        radiusVector[$y] = x * Math.sin(this.rot[$z]) + radiusVector[$y] * Math.cos(this.rot[$z]);
+        var cos$z = Math.cos(this.rot[$z]);
+        var sin$z = Math.sin(this.rot[$z]);
+        radiusVector[$x] = x * cos$z - radiusVector[$y] * sin$z;
+        radiusVector[$y] = x * sin$z + radiusVector[$y] * cos$z;
         var z = radiusVector[$z];
-        radiusVector[$z] = z * Math.cos(this.rot[$y]) - radiusVector[$y] * Math.sin(this.rot[$y]);
-        radiusVector[$y] = z * Math.sin(this.rot[$y]) + radiusVector[$y] * Math.cos(this.rot[$y]);
+        var cos$y = Math.cos(this.rot[$y]);
+        var sin$y = Math.sin(this.rot[$y]);
+        radiusVector[$z] = z * cos$y - radiusVector[$y] * sin$y;
+        radiusVector[$y] = z * sin$y + radiusVector[$y] * cos$y;
         return [
             texSize * (Math.atan2(radiusVector[$y], radiusVector[$x]) + Math.PI + 1) / (2 * Math.PI),
             texSize * Math.floor(texSize - 1 - texSize * Math.min(1, Math.acos(radiusVector[$z] / this.r) / Math.PI))
@@ -94,5 +99,5 @@ function Moon(r, rotation, tilt) {
                     canvas.fillRect(cs * i, cs * j, cs, cs);
         this.tex = canvas.getImageData(0, 0, texSize, texSize);
     };
-}(Moon.prototype));
+}(Moon.prototype);
 window['Moon'] = Moon;

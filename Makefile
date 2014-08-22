@@ -9,6 +9,9 @@ ms:
 	$(sjs) ms/moon.sjs > scripts/moon.js
 
 min: ms
-	$(cc) scripts/moon.js > scripts/moon.min.js
+	$(cc) --jscomp_off uselessCode scripts/moon.js > scripts/moon.c_min.js
+	uglifyjs scripts/moon.c_min.js --screw-ie8 \
+		--compress evaluate=true,unsafe=true \
+		--mangle sort=true > scripts/moon.min.js
 
-.PHONY: boobies ms
+.PHONY: boobies ms min
