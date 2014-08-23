@@ -1,10 +1,9 @@
-var moonSize = 0|256 * 2 / 3
 var texSize = 320
-var x = 0.5 * (900 - moonSize)
-var y = 0.5 * (600 - moonSize)
+var x = 0.5 * (900 - Moon.size)
+var y = 0.5 * (600 - Moon.size)
 
 var moon = new Moon
-var moonBuf = R1.createImageData(moonSize, moonSize)
+var moonBuf = R1.createImageData(Moon.size, Moon.size)
 
 var offset = texSize, then = Date.now(), diff
 

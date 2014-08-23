@@ -3,36 +3,11 @@
     <head>
         <meta charset="UTF-8">
         <title>blastoff [[test]]</title>
-        <link rel="stylesheet" href="../pub/game.css">
     </head>
     <body>
-        <div id="container">
-            <canvas id="L1" width="900" height="600"></canvas>
-        </div>
-        <script src="../scripts/moon.js"></script>
-        <script>
-            var L1 = document.getElementById('L1')
-            var R1 = L1.getContext('2d')
-            var m = new Moon, fn
-            var size = 0|256 * 2 / 3
-            var texSize = 320
-            var s = R1.createImageData(size, size)
-            var then = Date.now(), diff
-            var offset = texSize
-
-            R1.putImageData(m.tex, 0, 0)
-
-            requestAnimationFrame(fn = function () {
-                offset -= (diff = Date.now() - then) / 24
-                then += diff
-                while (offset < 0)
-                    offset += texSize
-                m.render(s.data, offset)
-                requestAnimationFrame(fn)
-                R1.putImageData(s,
-                    0.5 * (900 - texSize - size) + texSize,
-                    0.5 * (600 - size))
-            })
-        </script>
+        <ol>
+            <li><a href="./moon.html">moon</a></li>
+            <li><a href="./path.html">path</a></li>
+        </ol>
     </body>
 </html>
