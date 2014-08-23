@@ -14,33 +14,17 @@
         <script>
             function ballistic(x1, y1) {
                 var dist = Math.sqrt(x1 * x1 + y1 * y1)
-                var r = 0.7 * dist
-                var a = Math.atan(-x1 / y1) + Math.asin(0.5 * dist / r)
+                var r = 0.75 * dist
+                var a = Math.atan(-x1 / y1) + Math.asin(0.5 * dist / r) + (y1 < 0) * Math.PI
+                var x = x1 - r * Math.cos(a)
+                var y = y1 - r * Math.sin(a)
 
-                var x = -r * Math.cos(a)
-                var y = -r * Math.sin(a)
-
-                if (y1 >= 0) {
-                    x += x1
-                    y += y1
-                }
-
-                var u = -r * Math.cos(a + Math.PI)
-                var v = -r * Math.sin(a + Math.PI)
-
-                if (y1 < 0) {
-                    u += x1
-                    v += y1
-                }
+                var b0 = Math.atan2(y1 - y, x1 - x)
+                var b1 = Math.atan2(-y, -x)
 
                 R2.beginPath()
-                R2.arc(x, y, r, 0, 2 * Math.PI, false)
-                R2.strokeStyle = '#ff2d55'
-                R2.stroke()
-
-                R2.beginPath()
-                R2.arc(u, v, r, 0, 2 * Math.PI, false)
-                R2.strokeStyle = '#1ad6fd'
+                R2.arc(x, y, r, b0, b1, true)
+                R2.strokeStyle = '#ffdb4c'
                 R2.stroke()
             }
 

@@ -20,3 +20,9 @@ canvas {
 }
 
 #L1 { background: #101010; }
+
+#hamas {
+    left: 0;
+    position: absolute;
+    top: 0;
+}
