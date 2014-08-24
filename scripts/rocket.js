@@ -19,11 +19,23 @@ function Rocket() {
     this.y0 = this.y - this.r * Math.sin(a)
     this.a0 = Math.atan2(this.y - this.y0, this.x - this.x0)
     this.a1 = Math.atan2(-this.y0, -this.x0)
+    if (this.a0 <= this.a1)
+        this.a0 += 2 * Math.PI
 }
 
-Rocket.prototype.render = function () {
+Rocket.prototype.render = function (av) {
+    this.a0 -= av
+    if (this.a0 <= this.a1)
+        return this.hit = true
+    this.x = this.x0 + this.r * Math.cos(this.a0)
+    this.y = this.y0 + this.r * Math.sin(this.a0)
+
     R2.beginPath()
+    R2.setLineDash([4])
     R2.arc(this.x0, this.y0, this.r, this.a0, this.a1, true)
-    R2.strokeStyle = '#ffdb4c'
+    R2.strokeStyle = '#1ad6fd'
     R2.stroke()
+
+    R2.fillStyle = '#1ad6fd'
+    R2.fillRect(this.x - 2.5, this.y - 2.5, 5, 5)
 }
