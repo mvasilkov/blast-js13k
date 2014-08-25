@@ -8,13 +8,13 @@ var moonBuf = R1.createImageData(Moon.size, Moon.size)
 
 var offset = texSize, then = Date.now(), diff
 
-function r() {
+function main() {
     offset -= (diff = Date.now() - then) / 24
     then += diff
     while (offset < 0)
         offset += texSize
     moon.render(moonBuf.data, offset)
-    requestAnimationFrame(r)
+    requestAnimationFrame(main)
     R1.putImageData(moonBuf, x, y)
 
     R2.clearRect(-x0, -y0, 900, 600)
@@ -23,4 +23,7 @@ function r() {
 
 $id('hamas').addEventListener('click', rocketSys.add.bind(rocketSys), false)
 
-r()
+load(['./pub/a0.png'], function (loaded) {
+    rocketSys.a0 = loaded[0]
+    main()
+})

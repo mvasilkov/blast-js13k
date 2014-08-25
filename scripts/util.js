@@ -9,3 +9,19 @@ var y0 = 0.5 * 600 + 0.5
 
 R1.translate(x0, y0)
 R2.translate(x0, y0)
+
+function load(images, done) {
+    var toLoad = images.length
+    var res = Array(toLoad)
+    var loaded = 0
+
+    images.forEach(function (url, i) {
+        var image = new Image
+        image.onload = function () {
+            res[i] = this
+            if (++loaded == toLoad)
+                done(res)
+        }
+        image.src = url
+    })
+}

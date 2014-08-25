@@ -27,7 +27,7 @@ RocketSystem.prototype.render = function (nap) {
         else {
             R2.moveTo(rocket.x, rocket.y) // XXX benchmark whether it's better
             R2.arc(rocket.x0, rocket.y0, rocket.r, rocket.a0, rocket.a1, true)
-            R2.fillRect(rocket.x - 2.5, rocket.y - 2.5, 5, 5)
+            R2.drawImage(this.a0, (0|rocket.x) - 16.5, (0|rocket.y) - 16.5)
         }
     }
 
