@@ -13,6 +13,25 @@
         <script src="../scripts/util.js"></script>
         <script src="../scripts/rocket.js"></script>
         <script>
+            function intersections(x, y, r) {
+                var r0 = 64
+                var dist = Math.sqrt(x * x + y * y)
+                if (dist > r0 + r || dist < Math.abs(r0 - r))
+                    return false
+
+                var a = (r0 * r0 - r * r + dist * dist) / (2 * dist)
+                var x2 = x * a / dist
+                var y2 = y * a / dist
+                var b = Math.sqrt(r0 * r0 - a * a)
+                var rx = -y * b / dist
+                var ry = x * b / dist
+
+                return [
+                    x2 + rx, y2 + ry,
+                    x2 - rx, y2 - ry
+                ]
+            }
+
             function ballistic() {
                 var dist, a
                 dist = Math.sqrt(this.x * this.x + this.y * this.y)
@@ -35,7 +54,7 @@
             R1.strokeStyle = '#87fc70'
             R1.stroke()
 
-            var rocket = {}
+            var rocket = {x: 0, y: 0}
 
             function mm(event) {
                 var bcr = L2.getBoundingClientRect()
@@ -46,6 +65,13 @@
 
                 ballistic.call(rocket)
                 Rocket.prototype.render.call(rocket, 0)
+
+                var ii = intersections(rocket.x0, rocket.y0, rocket.r)
+                if (!ii) return
+                R2.fillStyle = '#ff3b30'
+                R2.fillRect(ii[0] - 2.5, ii[1] - 2.5, 5, 5)
+                R2.fillStyle = '#007aff'
+                R2.fillRect(ii[2] - 2.5, ii[3] - 2.5, 5, 5)
             }
 
             L2.addEventListener('mousemove', mm, false)

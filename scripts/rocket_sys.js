@@ -9,7 +9,7 @@ RocketSystem.prototype.add = function () {
 
 RocketSystem.prototype.render = function (nap) {
     var i, len = this.rockets.length
-    var av = nap / 2000
+    var av = nap / 4000
     for (i = 0; i < len; ++i)
         if (this.rockets[i].render(av)) {
             this.rockets.splice(i, 1)
