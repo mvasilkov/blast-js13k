@@ -1,11 +1,11 @@
 body {
-    background: #0b0b0b;
+    background: #7f8c8d;
     margin: 0;
 }
 
 #container {
-    border: 1px solid #ecf0f1;
-    box-shadow: 0 0 2px #ecf0f1;
+    border: 5px solid #95a5a6;
+    box-shadow: 0 0 2px #101010;
     height: 600px;
     margin: 50px auto;
     position: relative;
@@ -21,6 +21,7 @@ canvas {
 
 #L1 { background: #101010; }
 
+/* XXX remove */
 #hamas {
     left: 0;
     position: absolute;
