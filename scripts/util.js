@@ -10,6 +10,7 @@ var y0 = 0.5 * 600 + 0.5
 R1.translate(x0, y0)
 R2.translate(x0, y0)
 
+/*
 function load(images, done) {
     var toLoad = images.length
     var res = Array(toLoad)
@@ -24,4 +25,11 @@ function load(images, done) {
         }
         image.src = url
     })
+}
+*/
+
+function createCanvas(size, fn) {
+    var canvas = document.createElement('canvas')
+    canvas.height = canvas.width = size
+    return fn(canvas.getContext('2d'))
 }

@@ -23,7 +23,4 @@ function main() {
 
 $id('hamas').addEventListener('click', rocketSys.add.bind(rocketSys), false)
 
-load(['./pub/a0.png'], function (loaded) {
-    rocketSys.a0 = loaded[0]
-    main()
-})
+main()

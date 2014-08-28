@@ -42,6 +42,12 @@ function Rocket() {
     this.a1 = Math.atan2(this.y1 - this.y0, this.x1 - this.x0)
     if (this.a0 <= this.a1)
         this.a0 += 2 * Math.PI
+
+    this.tex = createCanvas(33, function (canvas) {
+        canvas.fillStyle = '#3498db'
+        canvas.fillRect(0, 0, 33, 33)
+        return canvas.canvas
+    })
 }
 
 Rocket.prototype.update = function (av) {

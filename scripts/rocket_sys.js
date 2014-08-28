@@ -12,7 +12,6 @@ RocketSystem.prototype.render = function (nap) {
     len = this.rockets.length
     av = 0.00025 * nap
 
-    R2.beginPath()
     R2.setLineDash([4])
     R2.fillStyle = '#1ad6fd'
     R2.strokeStyle = '#1ad6fd'
@@ -25,11 +24,11 @@ RocketSystem.prototype.render = function (nap) {
             --len
         }
         else {
-            R2.moveTo(rocket.x, rocket.y) // XXX benchmark whether it's better
+            R2.beginPath()
             R2.arc(rocket.x0, rocket.y0, rocket.r, rocket.a0, rocket.a1, true)
-            R2.drawImage(this.a0, (0|rocket.x) - 16.5, (0|rocket.y) - 16.5)
+            R2.stroke()
+            R2.drawImage(rocket.tex, rocket.x - 16.5, rocket.y - 16.5)
         }
     }
 
-    R2.stroke()
 }

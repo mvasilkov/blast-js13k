@@ -83,16 +83,15 @@ Moon['size'] = size
     }
 
     $$.init = function () {
-        var canvas = document.createElement('canvas')
-        canvas.height = canvas.width = texSize
-        canvas = canvas.getContext('2d')
-        canvas.fillStyle = '#7f8c8d'
-        canvas.fillRect(0, 0, texSize, texSize)
-        canvas.fillStyle = '#ecf0f1'
-        var cs = texSize / 32, i, j
-        for (i = 0; i < 32; ++i) for (j = 0; j < 32; ++j)
-            if (i % 2 == j % 2) canvas.fillRect(cs * i, cs * j, cs, cs)
-        this.tex = canvas.getImageData(0, 0, texSize, texSize)
+        this.tex = createCanvas(texSize, function (canvas) {
+            canvas.fillStyle = '#7f8c8d'
+            canvas.fillRect(0, 0, texSize, texSize)
+            canvas.fillStyle = '#ecf0f1'
+            var cs = texSize / 32, i, j
+            for (i = 0; i < 32; ++i) for (j = 0; j < 32; ++j)
+                if (i % 2 == j % 2) canvas.fillRect(cs * i, cs * j, cs, cs)
+            return canvas.getImageData(0, 0, texSize, texSize)
+        })
     }
 }(Moon.prototype)
 
