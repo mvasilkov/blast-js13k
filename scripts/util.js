@@ -1,3 +1,10 @@
+/** @const */ var FIRE = 0
+/** @const */ var WATER = 1
+/** @const */ var EARTH = 2
+
+/** @const */ var COLOR_BRIGHT = ['#f44', '#33b5e5', '#9c0']
+/** @const */ var COLOR_DARK = ['#c00', '#09c', '#690']
+
 function $id(id) { return document.getElementById(id) }
 function rand0(a) { return a * (Math.random() - 0.5) }
 

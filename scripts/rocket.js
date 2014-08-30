@@ -13,6 +13,16 @@ function intersection(x, y, r) {
             (y * a - x * b) / dist]
 }
 
+function rand_poly(canvas, r, a, c) {
+    /** @const */ var PI35 = Math.PI / 3.5
+    canvas.beginPath()
+    for (var i = 0; i < 7; ++i)
+        canvas.lineTo(16.5 + (r + rand0(a)) * Math.cos(PI35 * i),
+                      16.5 + (r + rand0(a)) * Math.sin(PI35 * i))
+    canvas.fillStyle = c
+    canvas.fill()
+}
+
 function Rocket() {
     var s, dist, a, i10n
     s = 1 - 2 * (Math.random() < 0.5)
@@ -43,9 +53,11 @@ function Rocket() {
     if (this.a0 <= this.a1)
         this.a0 += 2 * Math.PI
 
+    this.side = s = 0|Math.random() * 3
+
     this.tex = createCanvas(33, function (canvas) {
-        canvas.fillStyle = '#3498db'
-        canvas.fillRect(0, 0, 33, 33)
+        rand_poly(canvas, 14, 4, COLOR_BRIGHT[s])
+        rand_poly(canvas, 7, 2, COLOR_DARK[s])
         return canvas.canvas
     })
 }
