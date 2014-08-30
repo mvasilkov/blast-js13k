@@ -4,6 +4,7 @@ var y = 0.5 * (600 - Moon.size)
 
 var moon = new Moon
 var rocketSys = new RocketSystem
+var sputnik = new Sputnik
 var moonBuf = R1.createImageData(Moon.size, Moon.size)
 
 var offset = texSize, then = Date.now(), diff
@@ -19,6 +20,7 @@ function main() {
 
     R2.clearRect(-x0, -y0, 900, 600)
     rocketSys.render(diff)
+    sputnik.render(diff)
 }
 
 $id('hamas').addEventListener('click', rocketSys.add.bind(rocketSys), false)
