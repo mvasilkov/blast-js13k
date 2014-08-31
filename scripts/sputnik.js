@@ -1,15 +1,17 @@
-function draw_sputnik(s, c) {
-    R2.beginPath()
-    R2.moveTo(-10 * s, 12 * s)
-    R2.lineTo(0, -20 * s)
-    R2.lineTo(10 * s, 12 * s)
-    R2.lineTo(0, 8 * s)
-    R2.fillStyle = c
-    R2.fill()
+function draw_sputnik(canvas, size, color) {
+    canvas.beginPath()
+    canvas.moveTo(-10 * size, 12 * size)
+    canvas.lineTo(0, -20 * size)
+    canvas.lineTo(10 * size, 12 * size)
+    canvas.lineTo(0, 8 * size)
+    canvas.fillStyle = color
+    canvas.fill()
 }
 
 function Sputnik() {
     this.a = 0
+    this.x = 120
+    this.y = 0
 
     R1.setLineDash([4])
     R1.strokeStyle = COLOR_BRIGHT[LIGHT]
@@ -17,19 +19,25 @@ function Sputnik() {
     R1.beginPath()
     R1.arc(0, 0, 120, 0, 2 * Math.PI, false)
     R1.stroke()
+
+    this.tex = createCanvas(40, function (canvas) {
+        canvas.translate(20, 24)
+        draw_sputnik(canvas, 1, COLOR_BRIGHT[LIGHT])
+        draw_sputnik(canvas, 0.5, COLOR_DARK[LIGHT])
+        return canvas.canvas
+    })
 }
 
 Sputnik.prototype.render = function (nap) {
-    var av, x, y
+    var av
     this.a -= (av = 0.001 * nap)
     if (this.a < 0)
         this.a += 2 * Math.PI
-    x = 119 * Math.cos(this.a)
-    y = 119 * Math.sin(this.a)
+    this.x = 120 * Math.cos(this.a)
+    this.y = 120 * Math.sin(this.a)
     R2.save()
-    R2.translate(x, y)
+    R2.translate(this.x, this.y)
     R2.rotate(this.a)
-    draw_sputnik(1, COLOR_BRIGHT[LIGHT])
-    draw_sputnik(0.5, COLOR_DARK[LIGHT])
+    R2.drawImage(this.tex, -20.5, -24.5)
     R2.restore()
 }
