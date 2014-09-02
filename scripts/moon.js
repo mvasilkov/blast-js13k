@@ -40,10 +40,10 @@ Moon['size'] = size;
         lookAt[$x] = fac * u - 0.5 * scale;
         lookAt[$z] = fac * v - 0.5 * scale;
         var a = lookAt[$x] * lookAt[$x] + f * f + lookAt[$z] * lookAt[$z];
-        var Δ = b * b - 4 * a * this.c;
-        if (Δ <= 0)
+        var d = b * b - 4 * a * this.c;
+        if (d <= 0)
             return null;
-        var x1 = (-b - Math.sqrt(Δ)) / (2 * a);
+        var x1 = (-b - Math.sqrt(d)) / (2 * a);
         radiusVector[$x] = x1 * lookAt[$x];
         radiusVector[$y] = x1 * lookAt[$y] - f;
         radiusVector[$z] = x1 * lookAt[$z];

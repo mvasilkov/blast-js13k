@@ -1,5 +1,6 @@
 function RocketSystem() {
     this.rockets = []
+    this.dying = []
 }
 
 RocketSystem.prototype.add = function () {
@@ -8,7 +9,7 @@ RocketSystem.prototype.add = function () {
 }
 
 RocketSystem.prototype.render = function (nap) {
-    var i, len, rocket, av
+    var i, len, rocket, av, fv
     len = this.rockets.length
     av = 0.0002 * nap
 
@@ -17,6 +18,7 @@ RocketSystem.prototype.render = function (nap) {
     for (i = 0; i < len; ++i) {
         if ((rocket = this.rockets[i]).update(av)) {
             this.rockets.splice(i, 1)
+            this.dying.push(rocket)
             // jshint -W017
             --i
             --len
@@ -30,4 +32,24 @@ RocketSystem.prototype.render = function (nap) {
         }
     }
 
+    if (!(len = this.dying.length))
+        return
+
+    fv = 0.005 * nap
+
+    for (i = 0; i < len; ++i) {
+        rocket = this.dying[i]
+        if ((rocket.opacity -= fv) <= 0) {
+            this.dying.splice(i, 1)
+            // jshint -W017
+            --i
+            --len
+        }
+        else {
+            R2.globalAlpha = rocket.opacity
+            R2.drawImage(rocket.tex, rocket.x - 16.5, rocket.y - 16.5)
+        }
+    }
+
+    R2.globalAlpha = 1
 }

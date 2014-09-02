@@ -17,6 +17,10 @@ canvas {
     left: 0;
     position: absolute;
     top: 0;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
 }
 
 #L1 { background: #101010; }

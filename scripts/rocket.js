@@ -60,6 +60,8 @@ function Rocket() {
         rand_poly(canvas, 7, 2, COLOR_DARK[s])
         return canvas.canvas
     })
+
+    this.opacity = 1
 }
 
 Rocket.prototype.update = function (av) {

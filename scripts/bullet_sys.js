@@ -27,3 +27,36 @@ BulletSystem.prototype.render = function (nap) {
     }
     R2.fill()
 }
+
+BulletSystem.prototype.damage = function (rocketSys) {
+    var i, j, bullet, rocket, u, v,
+        ilen = this.bullets.length,
+        jlen = rocketSys.rockets.length
+
+    iloop:
+    for (i = 0; i < ilen; ++i) {
+        bullet = this.bullets[i]
+
+        for (j = 0; j < jlen; ++j) {
+            rocket = rocketSys.rockets[j]
+
+            u = abs(rocket.x - bullet[0])
+            v = abs(rocket.y - bullet[1])
+            if (u <= 16 && v <= 16 &&
+                u * u + v * v <= 256) {
+
+                this.bullets.splice(i, 1)
+                // jshint -W017
+                --i
+                --ilen
+
+                rocketSys.rockets.splice(j, 1)
+                rocketSys.dying.push(rocket)
+                --j
+                --jlen
+
+                continue iloop
+            }
+        }
+    }
+}

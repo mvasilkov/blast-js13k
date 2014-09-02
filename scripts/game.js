@@ -20,6 +20,7 @@ function main() {
     R1.putImageData(moonBuf, x, y)
 
     R2.clearRect(-x0, -y0, 900, 600)
+    bulletSys.damage(rocketSys)
     rocketSys.render(diff)
     sputnik.render(diff)
     bulletSys.render(diff)
