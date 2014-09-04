@@ -39,7 +39,8 @@ RocketSystem.prototype.render = function (nap) {
 
     for (i = 0; i < len; ++i) {
         rocket = this.dying[i]
-        SCORE++ //move somewhere outside the loop
+        SCORE++ //move somewhere outside the loop to bullet collision //currently death by moon counts too
+        //$id('hamas').click //AHAHAHA REVENGE THE DEAD
         if ((rocket.opacity -= fv) <= 0) {
             this.dying.splice(i, 1)
             // jshint -W017
