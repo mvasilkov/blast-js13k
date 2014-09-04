@@ -19,6 +19,9 @@ var R1 = L1.getContext('2d'), R2 = L2.getContext('2d')
 R1.translate(x0, y0)
 R2.translate(x0, y0)
 
+var score = 0
+var $score = $id('score').firstChild
+
 /*
 function load(images, done) {
     var toLoad = images.length
@@ -42,5 +45,3 @@ function createCanvas(size, fn) {
     canvas.height = canvas.width = size
     return fn(canvas.getContext('2d'))
 }
-
-var score = 0

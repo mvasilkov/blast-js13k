@@ -25,8 +25,7 @@ function main() {
     sputnik.render(diff)
     bulletSys.render(diff)
 
-    R2.font = '30px Segoe UI, Helvetica Neue, sans-serif'
-    R2.fillText('Killing spree: ' + score, -100, 250)
+    $score.nodeValue = score
 }
 
 $id('hamas').addEventListener('click', rocketSys.add.bind(rocketSys), false)
