@@ -55,7 +55,7 @@ function Rocket() {
 
     this.side = s = 0|Math.random() * 3
 
-    this.tex = createCanvas(33, function (canvas) {
+    this.tex = createCanvas(33, 33, function (canvas) {
         rand_poly(canvas, 14, 4, COLOR_BRIGHT[s])
         rand_poly(canvas, 7, 2, COLOR_DARK[s])
         return canvas.canvas

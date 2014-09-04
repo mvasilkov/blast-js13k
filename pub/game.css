@@ -23,8 +23,6 @@ canvas {
     user-select: none;
 }
 
-#L1 { background: #101010; }
-
 #xscore {
     color: #ecf0f1;
     font: 22px/1 Segoe UI, Helvetica Neue, sans-serif;

@@ -20,7 +20,7 @@ function Sputnik() {
     R1.arc(0, 0, 120, 0, 2 * Math.PI, false)
     R1.stroke()
 
-    this.tex = createCanvas(40, function (canvas) {
+    this.tex = createCanvas(40, 40, function (canvas) {
         canvas.translate(20, 24)
         draw_sputnik(canvas, 1, COLOR_BRIGHT[LIGHT])
         draw_sputnik(canvas, 0.5, COLOR_DARK[LIGHT])

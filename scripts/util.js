@@ -40,8 +40,9 @@ function load(images, done) {
 }
 */
 
-function createCanvas(size, fn) {
+function createCanvas(w, h, fn) {
     var canvas = document.createElement('canvas')
-    canvas.height = canvas.width = size
+    canvas.width = w
+    canvas.height = h
     return fn(canvas.getContext('2d'))
 }

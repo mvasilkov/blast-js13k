@@ -11,7 +11,7 @@ RocketSystem.prototype.add = function () {
 RocketSystem.prototype.render = function (nap) {
     var i, len, rocket, av, fv
     len = this.rockets.length
-    av = 0.0002 * nap
+    av = 0.00016 * nap
 
     R2.setLineDash([4])
 
