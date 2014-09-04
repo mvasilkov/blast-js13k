@@ -73,7 +73,7 @@ Moon['size'] = size
         while (i--) {
             vec = this.getVector(i)
             if (vec === null) continue
-            idxFrom = 4 * (Math.floor(vec[0] + offset) % texSize + vec[1])
+            idxFrom = 4 * ((0|vec[0] + offset) % texSize + vec[1])
             idxTo = 4 * i
             writeTo[idxTo] = readFrom[idxFrom]
             writeTo[idxTo + 1] = readFrom[idxFrom + 1]

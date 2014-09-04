@@ -1,14 +1,20 @@
 body {
     background: #7f8c8d;
+    font: 22px/1 Segoe UI, Helvetica Neue, sans-serif;
     margin: 0;
 }
 
 #container {
     border: 5px solid #95a5a6;
+    border-bottom-width: 64px;
     box-shadow: 0 0 2px #101010;
     height: 600px;
-    margin: 50px auto;
+    margin: 50px auto 0;
     position: relative;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
     width: 900px;
 }
 
@@ -17,18 +23,25 @@ canvas {
     left: 0;
     position: absolute;
     top: 0;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    -webkit-user-select: none;
-    user-select: none;
 }
 
 #xscore {
     color: #ecf0f1;
-    font: 22px/1 Segoe UI, Helvetica Neue, sans-serif;
     left: 600px;
     position: absolute;
     top: -40px;
+}
+
+#xoptions {
+    bottom: -48px;
+    color: #111;
+    font-size: 16px;
+    left: 2px;
+    position: absolute;
+}
+
+label {
+    padding: 0 5px;
 }
 
 /* XXX remove */

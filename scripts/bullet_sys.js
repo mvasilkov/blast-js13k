@@ -37,6 +37,15 @@ BulletSystem.prototype.damage = function (rocketSys) {
     for (i = 0; i < ilen; ++i) {
         bullet = this.bullets[i]
 
+        if (bullet[0] < -454 || bullet[0] > 454 ||
+            bullet[1] < -303 || bullet[1] > 303) {
+
+            this.bullets.splice(i, 1)
+            // jshint -W017
+            --i
+            --ilen
+        }
+
         for (j = 0; j < jlen; ++j) {
             rocket = rocketSys.rockets[j]
 

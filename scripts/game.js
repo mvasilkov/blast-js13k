@@ -8,6 +8,10 @@ var sputnik = new Sputnik
 var bulletSys = new BulletSystem(sputnik)
 var moonBuf = R1.createImageData(Moon.size, Moon.size)
 
+moon.render(moonBuf.data, 0)
+R1.putImageData(moonBuf, x, y)
+
+var o_rot = 1
 var offset = texSize, then = Date.now(), diff
 
 function main() {
@@ -15,9 +19,12 @@ function main() {
     then += diff
     while (offset < 0)
         offset += texSize
-    moon.render(moonBuf.data, offset)
     requestAnimationFrame(main)
-    R1.putImageData(moonBuf, x, y)
+
+    if (o_rot) {
+        moon.render(moonBuf.data, offset)
+        R1.putImageData(moonBuf, x, y)
+    }
 
     R2.clearRect(-x0, -y0, 900, 600)
     bulletSys.damage(rocketSys)
@@ -28,6 +35,10 @@ function main() {
     $score.nodeValue = score
 }
 
+$id('o_rot').addEventListener('change', function (event) {
+    o_rot = event.target.checked }, false)
+
+// XXX remove
 $id('hamas').addEventListener('click', rocketSys.add.bind(rocketSys), false)
 
 main()
