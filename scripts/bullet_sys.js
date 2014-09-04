@@ -55,6 +55,8 @@ BulletSystem.prototype.damage = function (rocketSys) {
                 --j
                 --jlen
 
+                ++score
+
                 continue iloop
             }
         }
