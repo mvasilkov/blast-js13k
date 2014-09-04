@@ -24,6 +24,8 @@ function main() {
     rocketSys.render(diff)
     sputnik.render(diff)
     bulletSys.render(diff)
+    R2.font="30px Calibri";
+    R2.fillText("Killing spree: " + ~~(SCORE/12), -100, 250) //12 because for loop in roc_sys
 }
 
 $id('hamas').addEventListener('click', rocketSys.add.bind(rocketSys), false)

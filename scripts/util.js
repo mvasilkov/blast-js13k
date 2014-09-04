@@ -2,6 +2,7 @@
 /** @const */ var WATER = 1
 /** @const */ var EARTH = 2
 /** @const */ var LIGHT = 3
+/** @const */ var SCORE = 0 
 
 /** @const */ var COLOR_BRIGHT = '#f441#3bf1#9c01#fb3'.split(1)
 /** @const */ var COLOR_DARK = '#c001#09c1#6901#f80'.split(1)
