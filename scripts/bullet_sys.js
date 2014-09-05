@@ -30,6 +30,7 @@ BulletSystem.prototype.render = function (nap) {
 }
 
 BulletSystem.prototype.damage = function (rocketSys) {
+    /** @const */ var r0 = 76
     var i, j, bullet, rocket, u, v,
         ilen = this.bullets.length,
         jlen = rocketSys.rockets.length
@@ -38,13 +39,30 @@ BulletSystem.prototype.damage = function (rocketSys) {
     for (i = 0; i < ilen; ++i) {
         bullet = this.bullets[i]
 
-        if (bullet[0] < -454 || bullet[0] > 454 ||
-            bullet[1] < -303 || bullet[1] > 303) {
+        u = abs(bullet[0])
+        v = abs(bullet[1])
+
+        if (u > 454 || v > 303) {
 
             this.bullets.splice(i, 1)
             // jshint -W017
             --i
             --ilen
+
+            continue
+        }
+
+        else if (u <= r0 && v <= r0 &&
+            u * u + v * v <= r0 * r0) {
+
+            this.bullets.splice(i, 1)
+            // jshint -W017
+            --i
+            --ilen
+
+            --life
+
+            continue
         }
 
         for (j = 0; j < jlen; ++j) {

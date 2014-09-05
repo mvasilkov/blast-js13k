@@ -66,7 +66,7 @@ function Rocket() {
 
 Rocket.prototype.update = function (av) {
     this.a0 -= av
-    if (this.a0 <= this.a1) return true
+    if (this.a0 <= this.a1) return --life, true
     this.x = this.x0 + this.r * Math.cos(this.a0)
     this.y = this.y0 + this.r * Math.sin(this.a0)
 }

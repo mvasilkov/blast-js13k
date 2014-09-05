@@ -6,6 +6,8 @@
 /** @const */ var COLOR_BRIGHT = '#f441#3bf1#9c01#fb3'.split(1)
 /** @const */ var COLOR_DARK = '#c001#09c1#6901#f80'.split(1)
 
+/** @const */ var LIFE_FULL = 10
+
 function $id(id) { return document.getElementById(id) }
 function rand0(a) { return a * (Math.random() - 0.5) }
 function abs(x) { return x < 0 ? -x : x }
@@ -18,6 +20,11 @@ var R1 = L1.getContext('2d'), R2 = L2.getContext('2d')
 
 R1.translate(x0, y0)
 R2.translate(x0, y0)
+
+R2.font = '96px Segoe UI,Helvetica Neue,sans-serif'
+
+var life = LIFE_FULL
+var $life = $id('life').firstChild
 
 var score = 0
 var $score = $id('score').firstChild

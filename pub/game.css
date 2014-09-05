@@ -25,11 +25,14 @@ canvas {
     top: 0;
 }
 
-#xscore {
+#xlife, #xscore {
     color: #ecf0f1;
-    left: 600px;
     position: absolute;
     top: -40px;
+}
+
+#xscore {
+    left: 600px;
 }
 
 #xoptions {
@@ -45,7 +48,7 @@ label {
 }
 
 #xstart {
-    background: #95a5a6;
+    background: #ecf0f1;
     bottom: 40px;
     left: 350px;
     padding: 10px;
@@ -61,16 +64,16 @@ label {
 }
 
 #start {
-    background: #fb3;
+    background: #9c0;
     border: 0;
+    color: #2d2d2d;
     font-size: 20px;
     margin-bottom: 5px;
     padding: 10px;
 }
 
 #start:active {
-    background: #f80;
-    color: #fff;
+    background: #fb3;
     outline: 0;
 }
 

@@ -13,7 +13,7 @@ function Sputnik() {
     this.x = 120
     this.y = 0
 
-    R1.setLineDash([4])
+    R1.setLineDash([1, 8])
     R1.strokeStyle = COLOR_BRIGHT[LIGHT]
 
     R1.beginPath()
