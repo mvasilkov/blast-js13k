@@ -6,6 +6,7 @@ function BulletSystem(sputnik) {
 
 BulletSystem.prototype.fire = function (event) {
     if (!game_started) return
+    aa.play('pew')
     var bcr = L2.getBoundingClientRect()
     var x = event.clientX - 0.5 * 900 - (0|bcr.left) - this.sputnik.x
     var y = event.clientY - 0.5 * 600 - (0|bcr.top) - this.sputnik.y
