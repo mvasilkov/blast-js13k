@@ -63,6 +63,6 @@ function bind_opt(name) {
         function (event) { opt[name] = event.target.checked },
         false)
 }
-bind_opt('mus')
+// bind_opt('mus')
 bind_opt('snd')
 bind_opt('rot')

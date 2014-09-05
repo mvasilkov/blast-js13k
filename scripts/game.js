@@ -80,7 +80,7 @@ function game_over() {
     game_started = false
     if (ai) clearTimeout(ai)
     R2.fillStyle = 'rgba(0,0,0,0.6)'
-    R2.fillRect(-450, -270, 900, 155)
+    R2.fillRect(-450, -273, 900, 160)
     R2.fillStyle = '#f44'
     R2.fillText(msg, -0.5 * R2.measureText(msg).width, -160)
     $go.firstChild.nodeValue = 'Play again'
