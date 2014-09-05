@@ -1,4 +1,4 @@
-body {
+body, #start {
     background: #7f8c8d;
     font: 22px/1 Segoe UI, Helvetica Neue, sans-serif;
     margin: 0;
@@ -44,9 +44,36 @@ label {
     padding: 0 5px;
 }
 
-/* XXX remove */
-#hamas {
-    left: 0;
+#xstart {
+    background: #95a5a6;
+    bottom: 40px;
+    left: 350px;
+    padding: 10px;
     position: absolute;
-    top: 0;
+    text-align: center;
+    width: 180px;
 }
+
+#container .hide {
+    left: -9000px;
+    opacity: 0;
+    transition: left 10s, opacity 0.5s;
+}
+
+#start {
+    background: #fb3;
+    border: 0;
+    font-size: 20px;
+    margin-bottom: 5px;
+    padding: 10px;
+}
+
+#start:active {
+    background: #f80;
+    color: #fff;
+    outline: 0;
+}
+
+#start:focus { outline: 0; }
+
+#help { font-size: 16px; }

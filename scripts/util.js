@@ -22,6 +22,8 @@ R2.translate(x0, y0)
 var score = 0
 var $score = $id('score').firstChild
 
+var game_started = false
+
 /*
 function load(images, done) {
     var toLoad = images.length

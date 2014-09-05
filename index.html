@@ -12,13 +12,16 @@
             <div id=xscore>Score: <span id=score>0</span></div>
             <div id=xoptions>
                 <b>Options:</b>
-                <label for=o_mus><input id=o_mus type=checkbox autocomplete=off checked> Music</label>
-                <label for=o_snd><input id=o_snd type=checkbox autocomplete=off checked> Sound effects</label>
-                <label for=o_rot><input id=o_rot type=checkbox autocomplete=off checked> Rotating planet</label>
+                <label for=mus><input id=mus type=checkbox autocomplete=off checked> Music</label>
+                <label for=snd><input id=snd type=checkbox autocomplete=off checked> Sound effects</label>
+                <label for=rot><input id=rot type=checkbox autocomplete=off checked> Rotating planet</label>
                 <br><small>Slow computer? Disable some of the options for better performance.</small>
             </div>
+            <div id=xstart>
+                <button id=start>Start game</button>
+                <div id=help>Defend the planet.<br>Click to shoot.</div>
+            </div>
         </div>
-        <button id=hamas>hamas</button>
         <script src=./scripts/util.js></script>
         <script src=./scripts/bg.js></script>
         <script src=./scripts/moon.min.js></script>
