@@ -55,3 +55,14 @@ function createCanvas(w, h, fn) {
     canvas.height = h
     return fn(canvas.getContext('2d'))
 }
+
+var opt = {mus: 1, snd: 1, rot: 1}
+
+function bind_opt(name) {
+    $id(name).addEventListener('change',
+        function (event) { opt[name] = event.target.checked },
+        false)
+}
+bind_opt('mus')
+bind_opt('snd')
+bind_opt('rot')

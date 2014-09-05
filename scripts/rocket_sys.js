@@ -17,6 +17,7 @@ RocketSystem.prototype.render = function (nap) {
 
     for (i = 0; i < len; ++i) {
         if ((rocket = this.rockets[i]).update(av)) {
+            aa.play('boom')
             this.rockets.splice(i, 1)
             this.dying.push(rocket)
             // jshint -W017

@@ -56,6 +56,7 @@ BulletSystem.prototype.damage = function (rocketSys) {
         else if (u <= r0 && v <= r0 &&
             u * u + v * v <= r0 * r0) {
 
+            aa.play('beep')
             this.bullets.splice(i, 1)
             // jshint -W017
             --i
@@ -74,6 +75,7 @@ BulletSystem.prototype.damage = function (rocketSys) {
             if (u <= 16 && v <= 16 &&
                 u * u + v * v <= 256) {
 
+                aa.play('kill')
                 this.bullets.splice(i, 1)
                 // jshint -W017
                 --i

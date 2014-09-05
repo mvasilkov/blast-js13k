@@ -11,7 +11,6 @@ var moonBuf = R1.createImageData(Moon.size, Moon.size)
 moon.render(moonBuf.data, 0)
 R1.putImageData(moonBuf, x, y)
 
-var opt = {mus: 1, snd: 1, rot: 1}
 var offset = texSize, then = Date.now(), diff
 
 function main() {
@@ -42,15 +41,6 @@ function main() {
     if (!life) game_over()
 }
 
-function bind_opt(name) {
-    $id(name).addEventListener('change',
-        function (event) { opt[name] = event.target.checked },
-        false)
-}
-bind_opt('mus')
-bind_opt('snd')
-bind_opt('rot')
-
 var atk = rocketSys.add.bind(rocketSys), ai = 0
 
 function atkWave() {
@@ -74,6 +64,7 @@ var $go = $id('go')
 
 function reset() {
     if (game_started) return
+    aa.play('beep')
     life = LIFE_FULL
     score = sputnik.a = 0
     rocketSys.rockets = []
