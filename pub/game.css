@@ -1,10 +1,10 @@
-body, #start {
+body, #go {
     background: #7f8c8d;
     font: 22px/1 Segoe UI, Helvetica Neue, sans-serif;
     margin: 0;
 }
 
-#container {
+#c {
     border: 5px solid #95a5a6;
     border-bottom-width: 64px;
     box-shadow: 0 0 2px #101010;
@@ -18,52 +18,47 @@ body, #start {
     width: 900px;
 }
 
+#c > * { position: absolute; }
+
 canvas {
     display: block;
     left: 0;
-    position: absolute;
     top: 0;
 }
 
-#xlife, #xscore {
+#xl, #xs {
     color: #ecf0f1;
-    position: absolute;
     top: -40px;
 }
 
-#xscore {
-    left: 600px;
-}
+#xl { left: 200px; }
+#xs { left: 600px; }
 
-#xoptions {
+#xop {
     bottom: -48px;
     color: #111;
     font-size: 16px;
     left: 2px;
-    position: absolute;
 }
 
-label {
-    padding: 0 5px;
-}
+label { padding: 0 5px; }
 
-#xstart {
+#xgo {
     background: #ecf0f1;
     bottom: 40px;
     left: 350px;
     padding: 10px;
-    position: absolute;
     text-align: center;
     width: 180px;
 }
 
-#container .hide {
+#c .h {
     left: -9000px;
     opacity: 0;
     transition: left 10s, opacity 0.5s;
 }
 
-#start {
+#go {
     background: #9c0;
     border: 0;
     color: #2d2d2d;
@@ -72,11 +67,11 @@ label {
     padding: 10px;
 }
 
-#start:active {
+#go:active {
     background: #fb3;
     outline: 0;
 }
 
-#start:focus { outline: 0; }
+#go:focus { outline: 0; }
 
-#help { font-size: 16px; }
+#hlp { font-size: 16px; }

@@ -6,21 +6,21 @@
         <link rel=stylesheet href=./pub/game.css>
     </head>
     <body>
-        <div id=container>
+        <div id=c>
             <canvas id=L1 width=900 height=600></canvas>
             <canvas id=L2 width=900 height=600></canvas>
-            <div id=xlife>Life: <span id=life>10</span></div>
-            <div id=xscore>Score: <span id=score>0</span></div>
-            <div id=xoptions>
+            <div id=xl>Life: <span id=life>10</span></div>
+            <div id=xs>Score: <span id=score>0</span></div>
+            <div id=xop>
                 <b>Options:</b>
                 <label for=mus><input id=mus type=checkbox autocomplete=off checked> Music</label>
                 <label for=snd><input id=snd type=checkbox autocomplete=off checked> Sound effects</label>
                 <label for=rot><input id=rot type=checkbox autocomplete=off checked> Rotating planet</label>
                 <br><small>Slow computer? Disable some of the options for better performance.</small>
             </div>
-            <div id=xstart>
-                <button id=start>Start game</button>
-                <div id=help>Defend the planet.<br>Click to shoot.</div>
+            <div id=xgo>
+                <button id=go>Start game</button>
+                <div id=hlp>Defend the planet.<br>Click to shoot.</div>
             </div>
         </div>
         <script src=./scripts/util.js></script>

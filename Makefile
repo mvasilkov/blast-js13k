@@ -14,4 +14,7 @@ min: ms
 		--compress evaluate=true,unsafe=true \
 		--mangle sort=true > scripts/moon.min.js
 
-.PHONY: boobies ms min
+release:
+	rsync -CPaz . animuchan:files/blast-js13k/
+
+.PHONY: boobies ms min release

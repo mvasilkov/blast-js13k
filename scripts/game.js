@@ -69,27 +69,31 @@ function atkWave() {
     ai = setTimeout(atkWave, 4000 + rand0(1000))
 }
 
-var $xstart = $id('xstart')
+var $xgo = $id('xgo')
+var $go = $id('go')
 
 function reset() {
+    if (game_started) return
     life = LIFE_FULL
     score = sputnik.a = 0
     rocketSys.rockets = []
     bulletSys.bullets = []
     game_started = true
-    $xstart.className = 'hide'
+    $xgo.className = 'h'
     setTimeout(atkWave, 200)
 }
-$id('start').addEventListener('click', reset, false)
+$go.addEventListener('click', reset, false)
 
 function game_over() {
     var msg = 'Game Over'
     game_started = false
     if (ai) clearTimeout(ai)
+    R2.fillStyle = 'rgba(0,0,0,0.6)'
+    R2.fillRect(-450, -270, 900, 155)
     R2.fillStyle = '#f44'
     R2.fillText(msg, -0.5 * R2.measureText(msg).width, -160)
-    $id('start').firstChild.nodeValue = 'Play again'
-    $xstart.className = ''
+    $go.firstChild.nodeValue = 'Play again'
+    $xgo.className = ''
 }
 
 main()
