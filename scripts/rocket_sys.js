@@ -1,3 +1,4 @@
+/** @constructor */
 function RocketSystem() {
     this.rockets = []
     this.dying = []

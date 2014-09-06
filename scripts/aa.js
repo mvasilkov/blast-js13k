@@ -1,3 +1,4 @@
+/** @constructor */
 function ArcadeAudio() {
     this.sounds = {}
 }
@@ -20,7 +21,7 @@ ArcadeAudio.prototype.add = function(key, count, settings) {
 }
 
 ArcadeAudio.prototype.play = function(key) {
-    if (!opt.snd) return
+    if (!opt['snd']) return
     var sound = this.sounds[key]
     var soundData = sound.length > 1 ? sound[0|Math.random() * sound.length] : sound[0]
     soundData.pool[soundData.tick].play()

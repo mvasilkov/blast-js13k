@@ -11,7 +11,7 @@ function Moon(r, rotation, tilt) {
         -Math.PI * (rotation || 24) / 180]
     this.init()
 }
-Moon['size'] = size
+Moon.size = size
 
 
 ~ function ($$, undefined) {
@@ -66,7 +66,7 @@ Moon['size'] = size
         return this.cache[i]
     }
 
-    $$['render'] = function (writeTo, offset) {
+    $$.render = function (writeTo, offset) {
         var readFrom = this.tex.data
         var vec, idxFrom, idxTo
         var i = size * size
@@ -97,5 +97,3 @@ Moon['size'] = size
         })
     }
 }(Moon.prototype)
-
-window['Moon'] = Moon

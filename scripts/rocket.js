@@ -23,6 +23,7 @@ function rand_poly(canvas, r, a, c) {
     canvas.fill()
 }
 
+/** @constructor */
 function Rocket() {
     var s, dist, a, i10n
     s = 1 - 2 * (Math.random() < 0.5)

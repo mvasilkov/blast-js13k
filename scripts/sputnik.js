@@ -8,6 +8,7 @@ function draw_sputnik(canvas, size, color) {
     canvas.fill()
 }
 
+/** @constructor */
 function Sputnik() {
     this.a = 0
     this.x = 120

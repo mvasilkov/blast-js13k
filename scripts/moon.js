@@ -14,7 +14,7 @@ function Moon(r, rotation, tilt) {
     ];
     this.init();
 }
-Moon['size'] = size;
+Moon.size = size;
 ~function ($$, undefined) {
     /** @const */
     var $x = 0;
@@ -69,7 +69,7 @@ Moon['size'] = size;
         }
         return this.cache[i];
     };
-    $$['render'] = function (writeTo, offset) {
+    $$.render = function (writeTo, offset) {
         var readFrom = this.tex.data;
         var vec, idxFrom, idxTo;
         var i = size * size;
@@ -119,4 +119,3 @@ Moon['size'] = size;
         });
     };
 }(Moon.prototype);
-window['Moon'] = Moon;

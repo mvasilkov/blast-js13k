@@ -1,3 +1,4 @@
+/** @constructor */
 function BulletSystem(sputnik) {
     this.sputnik = sputnik
     this.bullets = []

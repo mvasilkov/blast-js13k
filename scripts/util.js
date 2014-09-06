@@ -56,7 +56,7 @@ function createCanvas(w, h, fn) {
     return fn(canvas.getContext('2d'))
 }
 
-var opt = {mus: 1, snd: 1, rot: 1}
+var opt = {'mus': 1, 'snd': 1, 'rot': 1}
 
 function bind_opt(name) {
     $id(name).addEventListener('change',

@@ -17,7 +17,7 @@ function main() {
     then += (diff = Date.now() - then)
     requestAnimationFrame(main)
 
-    if (opt.rot) {
+    if (opt['rot']) {
         offset -= diff / 24
         while (offset < 0)
             offset += texSize
