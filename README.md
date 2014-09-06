@@ -21,5 +21,5 @@ BGM [bytebeat][5] by **Fabian Giesen** a.k.a. **ryg** (from [this tweet][6])
 [2]: https://github.com/mneubrand/jsfxr
 [3]: https://github.com/mvasilkov/blast-js13k/blob/master/scripts/aa.js
 [4]: http://codepen.io/jackrugile/blog/arcade-audio-for-js13k-games
-[5]: https://github.com/mvasilkov/blast-js13k/blob/b432c200f92369ced800a6c8b1331e9fbb5acd64/scripts/bgm.js#L5
+[5]: https://github.com/mvasilkov/blast-js13k/blob/master/scripts/bgm.js
 [6]: https://twitter.com/rygorous/status/508028618392764416
