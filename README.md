@@ -16,6 +16,8 @@ Sound effects [synthesizer code][2] by **Markus Neubrand** (Apache License 2.0)
 
 BGM [bytebeat][5] by **Fabian Giesen** a.k.a. **ryg** (from [this tweet][6])
 
+Perlin noise ([noise.js][7]) based on example code by **Stefan Gustavson** (public domain)
+
 [0]: http://animuchan.net/blast-js13k/
 [1]: https://github.com/mvasilkov/blast-js13k/blob/master/ms/moon.sjs
 [2]: https://github.com/mneubrand/jsfxr
@@ -23,3 +25,4 @@ BGM [bytebeat][5] by **Fabian Giesen** a.k.a. **ryg** (from [this tweet][6])
 [4]: http://codepen.io/jackrugile/blog/arcade-audio-for-js13k-games
 [5]: https://github.com/mvasilkov/blast-js13k/blob/master/scripts/bgm.js
 [6]: https://twitter.com/rygorous/status/508028618392764416
+[7]: https://github.com/mvasilkov/blast-js13k/blob/master/scripts/noise.js
