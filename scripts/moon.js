@@ -109,10 +109,14 @@ Moon.size = size;
             canvas.fillStyle = '#ecf0f1';
             canvas.fillRect(0, 0, texSize, texSize);
             canvas.fillStyle = '#7f8c8d';
-            var cs = texSize / 32, i, j;
+            var cs = texSize / 32, i, j, f$2, a, b$2, k;
             for (i = 0; i < 32; ++i)
                 for (j = 0; j < 32; ++j) {
-                    canvas.globalAlpha = Math.random() * t[abs(j - 16)];
+                    f$2 = 2 * Math.PI * i / 32;
+                    a = 1.6 * Math.sin(f$2);
+                    b$2 = 1.6 * Math.cos(f$2);
+                    k = perlin3(a, b$2, 0.4 * j);
+                    canvas.globalAlpha = clamp01(k + 0.5) * t[abs(j - 16)];
                     canvas.fillRect(cs * i, cs * j, cs, cs);
                 }
             return canvas.getImageData(0, 0, texSize, texSize);

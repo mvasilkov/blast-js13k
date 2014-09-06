@@ -11,6 +11,7 @@
 function $id(id) { return document.getElementById(id) }
 function rand0(a) { return a * (Math.random() - 0.5) }
 function abs(x) { return x < 0 ? -x : x }
+function clamp01(x) { return (x < 0)? 0: (x > 1)? 1: x }
 
 var L1 = $id('L1'), L2 = $id('L2')
 var R1 = L1.getContext('2d'), R2 = L2.getContext('2d')

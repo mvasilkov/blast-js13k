@@ -20,9 +20,9 @@ prepare_js13k:
 
 jsmin_js13k:
 	cat ./scripts/aa.js ./scripts/util.js ./scripts/bg.js ./scripts/bgm.js \
-		./scripts/moon.js ./scripts/rocket.js ./scripts/rocket_sys.js \
-		./scripts/sputnik.js ./scripts/bullet_sys.js ./scripts/game.js \
-		> ./min/0.js
+		./scripts/noise.js ./scripts/moon.js ./scripts/rocket.js \
+		./scripts/rocket_sys.js ./scripts/sputnik.js ./scripts/bullet_sys.js \
+		./scripts/game.js > ./min/0.js
 	$(cc) --jscomp_off uselessCode ./min/0.js > ./min/1.js
 	uglifyjs ./min/1.js --screw-ie8 \
 		--compress evaluate=true,unsafe=true \
