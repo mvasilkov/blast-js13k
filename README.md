@@ -18,7 +18,8 @@ BGM [bytebeat][5] by **Fabian Giesen** a.k.a. **ryg** (from [this tweet][6])
 
 Perlin noise ([noise.js][7]) based on example code by **Stefan Gustavson** (public domain)
 
-[0]: http://animuchan.net/blast-js13k/
+[0]: http://js13kgames.com/entries/blast-13-kilobytes
+[0a]: http://animuchan.net/blast-js13k/
 [1]: https://github.com/mvasilkov/blast-js13k/blob/master/ms/moon.sjs
 [2]: https://github.com/mneubrand/jsfxr
 [3]: https://github.com/mvasilkov/blast-js13k/blob/master/scripts/aa.js
