@@ -9,6 +9,12 @@ RocketSystem.prototype.add = function () {
     this.rockets.push(rocket)
 }
 
+var shto = 0
+function stopShaking() {
+    L1.className = ''
+    shto = 0
+}
+
 RocketSystem.prototype.render = function (nap) {
     var i, len, rocket, av, fv
     len = this.rockets.length
@@ -24,6 +30,10 @@ RocketSystem.prototype.render = function (nap) {
             // jshint -W017
             --i
             --len
+
+            L1.className = 'sh'
+            if (shto) clearTimeout(shto)
+            shto = setTimeout(stopShaking, 300)
         }
         else {
             R2.beginPath()

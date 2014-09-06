@@ -16,6 +16,8 @@ function clamp01(x) { return (x < 0)? 0: (x > 1)? 1: x }
 var L1 = $id('L1'), L2 = $id('L2')
 var R1 = L1.getContext('2d'), R2 = L2.getContext('2d')
 
+if (!R1.setLineDash) R1.setLineDash = R2.setLineDash = function () {}
+
 /** @const */ var x0 = 0.5 * 900 + 0.5
 /** @const */ var y0 = 0.5 * 600 + 0.5
 
